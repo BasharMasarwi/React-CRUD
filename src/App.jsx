@@ -4,6 +4,7 @@ import Index from './compnents/users/Index.jsx'
 import Create from './compnents/users/Create.jsx'
 import Details from './compnents/users/Details.jsx'
 import Loader from './compnents/users/Loader.jsx'
+import Edit from './compnents/users/Edit.jsx'
 export default function App() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/user/create" element={<Create />}/>
       <Route path="/user/index" element ={<Index />} />
       <Route path='user/:id' element={<Details/>}/>
+      <Route path="/user/edit/:id" element={<Edit />} />
       <Route path ="*" element={<h3>Page Not Found</h3>} />
     </Routes>
     </BrowserRouter>
