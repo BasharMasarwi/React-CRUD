@@ -61,13 +61,18 @@ export default function Index() {
                                         </td>
 
                                     </tr>
+                                   
                                 </React.Fragment>
+                                
                             )
+                            
                         }) : <h2>no user data</h2>}
                         <tbody>
+                        <button className='btn d-flex justify-content-center  text-center text-decoration-none' ><Link to={`/user/create`}> Add User</Link></button>
 
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

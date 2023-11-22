@@ -33,9 +33,9 @@ export default function Create() {
     setLoader(true);
     if (Object.keys(validationUserData(user)).length > 0) {
       setErrors(validationUserData(user));
+      setLoader(false);
     }
     else {
-
       try {
         const { data } = await axios.post("https://crud-users-gold.vercel.app/users/", user);
         if (data.message == 'success') {
@@ -46,7 +46,8 @@ export default function Create() {
       } catch (error) {
       
         setErrorBack(error.response.data.message);
-        setErrorBack([]);
+        
+        console.log(errorBack);
         setLoader(false);
       }
     }
@@ -60,11 +61,12 @@ export default function Create() {
    
      
         <div className="col py-3 sec  ">
-          {errorBack && <p className='text-danger text' >{errorBack}</p>}
+         
 
           <div className="container  ">
-            <h2 className='text text-center '>Create Account</h2>
-          <form key={user._id} className="row g-3  mt-4 border-rounded" onSubmit={sendData}>
+            <h2 className='text text-center cc '>Create Account</h2>
+            {errorBack && <p className='text-danger text' >{errorBack}</p>}
+          <form key={user._id} className="row g-3  mt-4 " onSubmit={sendData}>
             <Input  errors={errors}  id={'username'}   title={'user name'} type={'text'} name={'name'} changeData={changeData} />
             <Input errors={errors} id={'email'}   title={'user email'} type={'email'} name={'email'} changeData={changeData} />
             <Input errors={errors} id={'password'}   title={'user password'}

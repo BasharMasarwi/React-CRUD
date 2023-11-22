@@ -7,7 +7,6 @@ export default function Input({id,title,type,name,changeData,value,classCustom,e
     <input type={type} value={value} name={name} className={`form-control ${classCustom}`} 
     id={id}  onChange={changeData} />
     {errors[name] && <p className='text-danger'>{errors[name]}</p>}
-   
   </div>
   )
 }
